@@ -1,0 +1,163 @@
+/*
+ * @file feed.css
+ * @author 이재
+ * @version 1.0
+ * @since 2025-12-11
+ * @description
+ * 피드 및 채팅 관련 화면의 레이아웃과 공통 스타일을 정의합니다.
+ */
+
+.feed-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7ff, #e4ebff);
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #3a7afe;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #7a7a7a;
+  margin-top: 4px;
+}
+
+.my-btn {
+  text-transform: none;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* 상단 네비 탭 */
+.nav-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.nav-btn {
+  text-transform: none;
+  font-size: 13px;
+  border-radius: 999px;
+  padding-inline: 16px;
+}
+
+.nav-btn.active {
+  background-color: #ffffff;
+  box-shadow: 0 3px 10px rgba(58, 122, 254, 0.2);
+  color: #3a7afe;
+}
+
+/* 공통 카드/리스트 스타일 */
+.filter-card {
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.feed-list {
+  margin-top: 8px;
+}
+
+.feed-card {
+  border-radius: 18px;
+}
+
+.feed-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.source-chip {
+  font-size: 12px;
+  color: #777;
+}
+
+.source-name {
+  font-weight: 600;
+}
+
+.source-chip .dot {
+  margin: 0 4px;
+}
+
+.time {
+  color: #aaa;
+}
+
+.category-pill {
+  background-color: #eef3ff;
+  color: #3a7afe;
+  text-transform: none;
+}
+
+.title-line {
+  margin-top: 6px;
+}
+
+.title-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: #222;
+}
+
+.summary {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #555;
+}
+
+.feed-card-actions {
+  padding-top: 4px;
+  padding-bottom: 10px;
+}
+
+.feed-card-actions .left {
+  flex: 1;
+}
+
+.feed-card-actions .right {
+  display: flex;
+  align-items: center;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #777;
+}
+
+.empty-text {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* 채팅방 */
+.chat-room-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.chat-room-meta {
+  font-size: 12px;
+  color: #777;
+}
+
+.tab-title {
+  font-weight: 600;
+  font-size: 14px;
+}
