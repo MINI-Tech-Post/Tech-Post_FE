@@ -1,3 +1,16 @@
+/*
+ * @file api/axios.js
+ * @author 이재
+ * @version 1.0
+ * @since 2025-12-11
+ * @description
+ * Axios 공통 인스턴스를 정의한 파일로,
+ * 요청 인터셉터를 통해 JWT Access Token을 자동으로 헤더에 주입하고
+ * 토큰 만료 시 Refresh Token 기반 재발급 로직을 수행합니다.
+ * 응답 인터셉터에서는 401 오류 발생 시 원 요청을 재시도하거나
+ * 재발급 실패 시 로그아웃 처리를 담당합니다.
+ */
+
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
@@ -71,7 +84,7 @@ async function reissueToken() {
 
     localStorage.setItem("accessToken", newAccessToken);
 
-    console.log("🔁 토큰 재발급 완료");
+    console.log("토큰 재발급 완료");
     return true;
   } catch (err) {
     console.error("토큰 재발급 실패:", err.response?.data || err);
