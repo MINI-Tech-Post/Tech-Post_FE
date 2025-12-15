@@ -511,11 +511,24 @@ export default {
 
     // === 상세 모달 관련 ===
     async openPostDetail(post) {
-      this.selectedPost = { ...post };
       this.detailDialog = true;
-      this.likedPost = !!post.isLiked;
-      
-      await this.loadComments(post.id);
+
+      try {
+        // 상세 조회 API를 호출
+        const res = await api.get(`/posts/${post.id}`);
+
+        // 서버에서 받은 데이터로 교체
+        const freshPostData = res.data.result;
+        this.selectedPost = freshPostData;
+        this.likedPost = !!freshPostData.isLiked;
+
+        await this.loadComments(post.id);
+
+      } catch (e) {
+        console.error("상세 정보 로딩 실패", e);
+        alert("게시글 정보를 불러오는데 실패했습니다.");
+        this.detailDialog = false;
+      }
     },
 
     async loadComments(postId) {
