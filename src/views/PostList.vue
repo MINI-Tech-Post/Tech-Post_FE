@@ -1,5 +1,5 @@
 <!--
-  @file NewsListView.vue
+  @file PostList.vue
   @author 이재
   @version 1.0
   @since 2025-12-11

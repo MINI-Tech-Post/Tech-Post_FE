@@ -1,3 +1,16 @@
+<!--
+  @file LoginPage.vue
+  @author 이재
+  @version 1.0
+  @since 2025-12-11
+  @description
+  사용자 로그인 화면을 담당하는 컴포넌트로,
+  아이디/비밀번호 기반 로그인과
+  Google·Kakao·Naver OAuth2 소셜 로그인을 지원합니다.
+  로그인 성공 시 Access Token을 저장하고
+  사용자 인증 정보를 초기화한 뒤 메인 페이지로 라우팅합니다.
+-->
+
 <template>
   <v-container fluid class="login-page">
     <v-row align="center" justify="center">

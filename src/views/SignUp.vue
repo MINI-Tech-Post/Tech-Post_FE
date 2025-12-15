@@ -1,3 +1,14 @@
+<!--
+  @file SignUp.vue
+  @author 이재
+  @version 1.0
+  @since 2025-12-11
+  @description
+  신규 사용자 회원가입 화면을 담당하는 컴포넌트로,
+  아이디, 이름, 비밀번호 입력에 대한 유효성 검증을 수행하고
+  회원가입 완료 후 로그인 페이지로 이동시키는 역할을 합니다.
+-->
+
 <template>
   <v-container fluid class="login-page">
     <v-row align="center" justify="center">
