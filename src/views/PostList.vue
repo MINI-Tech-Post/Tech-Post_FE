@@ -109,7 +109,7 @@
                     size="small"
                     variant="outlined"
                   >
-                    🔥 인기순
+                    🔥Hot 10
                   </v-btn>
                 </v-btn-toggle>
               </v-col>
@@ -230,7 +230,7 @@
 
           <!-- 서버 페이징 -->
           <div
-            v-if="newsTotalPages > 1"
+            v-if="newsSort !== 'popluar' && newsTotalPages > 1"
             class="mt-6 d-flex justify-center"
           >
             <v-pagination
@@ -439,16 +439,22 @@ export default {
     async loadNews() {
       this.newsLoading = true;
       try {
+        
+        if (this.newsSort === 'popular') {
+          const res = await api.get('/posts/popular');
+
+          this.newsItems = res.data.result || [];
+          this.newsTotalPages = 1;
+          this.newsPage = 1;
+
+          return;
+        }
+
         const params = {
           page: this.newsPage - 1,
           size: this.newsPageSize,
+          sort: 'id,DESC',
         };
-
-        if (this.newsSort === 'popular') {
-          params.sort = 'likeCount,DESC';
-        } else {
-          params.sort = 'id,DESC';
-        }
 
         if (this.newsSearch) params.keyword = this.newsSearch;
         if (this.publisherFilter) params.publisher = this.publisherFilter;
@@ -474,6 +480,7 @@ export default {
       this.loadNews();
     },
     onPageChange(page) {
+      if(this.newsSort === 'popular') return;
       this.newsPage = page;
       this.loadNews();
     },
